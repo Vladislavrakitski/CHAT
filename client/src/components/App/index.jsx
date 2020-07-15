@@ -1,10 +1,17 @@
 import React from 'react';
-import { Auth } from '@src/pages';
+import { Route } from 'react-router-dom';
+
+import { Auth, Home } from '@src/pages';
 
 export default () => {
 	return (
 		<div className='wrapper'>
-			<Auth />
+			<Route exact path='/'>
+				<Auth />
+			</Route>
+			<Route exact path='/im'>
+				<Home />
+			</Route>
 		</div>
 	);
 };

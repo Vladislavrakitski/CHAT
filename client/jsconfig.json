@@ -21,7 +21,7 @@
 			"@src/*": ["src/*"],
 			"@images/*": ["src/assets/images/*"],
 			"@store/*": ["src/store/*"],
-			"@Styles/*": ["src/Styles/*"]
+			"@styles/*": ["src/styles/*"]
 		},
 		"lib": ["es6", "dom"]
 	}

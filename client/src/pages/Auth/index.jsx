@@ -1,8 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import { LoginForm } from '@src/modules';
-import { RegisterForm } from '@src/modules';
+import { LoginForm, RegisterForm } from '@src/modules';
 import './styles.module.scss';
 
 export default () => {
