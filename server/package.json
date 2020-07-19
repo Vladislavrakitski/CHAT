@@ -4,7 +4,7 @@
 	"description": "Chat",
 	"private": true,
 	"scripts": {
-		"start": "nodemon server.js"
+		"start": "NODE_ENV=development nodemon src/index.ts"
 	},
 	"keywords": [
 		"react",
@@ -19,10 +19,22 @@
 	"author": "Vladislav Rakitski <rakitski457@gmail.com>",
 	"license": "ISC",
 	"dependencies": {
+		"@types/dotenv": "^8.2.0",
+		"@types/express": "^4.17.7",
+		"@types/express-validator": "^3.0.0",
+		"@types/mongoose": "^5.7.32",
+		"@types/validator": "^13.1.0",
+		"body-parser": "^1.19.0",
 		"cors": "^2.8.5",
 		"dotenv": "^8.2.0",
 		"express": "^4.17.1",
-		"mysql": "^2.18.1",
-		"nodemon": "^2.0.4"
+		"mongoose": "^5.9.24",
+		"socket.io": "^2.3.0"
+	},
+	"devDependencies": {
+		"@types/node": "^14.0.23",
+		"nodemon": "^2.0.4",
+		"ts-node": "^8.10.2",
+		"typescript": "^3.9.7"
 	}
 }
