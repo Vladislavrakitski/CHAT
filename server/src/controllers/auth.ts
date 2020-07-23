@@ -9,7 +9,7 @@ import { IUser } from '../models/User';
 import { createToken } from '../helpers';
 // import { SentMessageInfo } from 'nodemailer/lib/sendmail-transport';
 
-class UserController {
+class AuthController {
 	io: socket.Server;
 
 	constructor(io: socket.Server) {
@@ -18,9 +18,12 @@ class UserController {
 
 	create = (req: express.Request, res: express.Response): void => {
 		const postData: { email: string; fullname: string; password: string } = {
-			email: req.body.email,
-			fullname: req.body.fullname,
-			password: req.body.password,
+			// email: req.body.email,
+			// fullname: req.body.fullname,
+			// password: req.body.password,
+			email: 'gay@juli.com',
+			fullname: 'Gay Juli',
+			password: 'qwerty123',
 		};
 
 		const errors = validationResult(req);
@@ -103,4 +106,4 @@ class UserController {
 	};
 }
 
-export default UserController;
+export default AuthController;
