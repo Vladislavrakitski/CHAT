@@ -1,11 +1,10 @@
 import bodyParser from 'body-parser';
 import express from 'express';
 import socket from 'socket.io';
+import { auth, visit } from '../middlewares';
+//import { loginValidation, registerValidation } from '../utils/validations';
 
-// import { updateLastSeen, checkAuth } from "../middlewares";
-// import { loginValidation, registerValidation } from "../utils/validations";
-
-// import multer from "./multer";
+//import multer from './multer';
 
 // import {
 //   UserCtrl,
@@ -14,17 +13,17 @@ import socket from 'socket.io';
 //   UploadFileCtrl,
 // } from "../controllers";
 
-const createRoutes = (app: express.Express) => {
+const createRoutes = (app, io) => {
 	// const UserController = new UserCtrl(io);
 	// const DialogController = new DialogCtrl(io);
 	// const MessageController = new MessageCtrl(io);
 	// const UploadFileController = new UploadFileCtrl();
 
 	app.use(bodyParser.json());
-	// app.use(checkAuth);
-	// app.use(updateLastSeen);
+	app.use(auth);
+	app.use(visit);
 
-	app.get('/', (_: express.Request, res: express.Response) => {
+	app.get('/', (_, res) => {
 		res.send('Hello, World!');
 	});
 

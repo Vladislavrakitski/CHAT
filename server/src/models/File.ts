@@ -2,7 +2,7 @@ import mongoose, { Schema, Document } from 'mongoose';
 import { IMessage } from './Message';
 import { IUser } from './User';
 
-export interface IUpload extends Document {
+export interface IFile extends Document {
 	filename: string;
 	size: number;
 	ext: string;
@@ -11,7 +11,9 @@ export interface IUpload extends Document {
 	user: IUser | string;
 }
 
-const UploadSchema = new Schema(
+export type IFileDocument = Document & IFile;
+
+const FilesSchema = new Schema(
 	{
 		filename: String,
 		size: Number,
@@ -25,6 +27,6 @@ const UploadSchema = new Schema(
 	}
 );
 
-const UploadModel = mongoose.model<IUpload>('Upload', UploadSchema);
+const FileModel = mongoose.model<IFile>('Upload', FilesSchema);
 
-export default UploadModel;
+export default FileModel;
