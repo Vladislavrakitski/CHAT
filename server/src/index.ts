@@ -14,8 +14,8 @@ const io = createSocket(http);
 
 createRoutes(app, io);
 
-const PORT: number = server.port ? Number(server.port) : 3003;
+const PORT: number = server.port ? Number(server.port) : 5000;
 
-app.listen(PORT, () => {
+http.listen(PORT, () => {
 	console.log(`Server: http://localhost:${PORT}`);
 });

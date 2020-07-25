@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { NextFunction } from 'express';
 import bcrypt from 'bcrypt';
 import socket from 'socket.io';
 import { validationResult, ValidationError, Result } from 'express-validator';
@@ -9,6 +9,24 @@ import { IUser } from '../models/User';
 import { createToken } from '../helpers';
 // import { SentMessageInfo } from 'nodemailer/lib/sendmail-transport';
 
+// export default async (req: any, res: any, next: NextFunction) => {
+// 	console.log(req.body);
+
+// 	const { email, fullname, password }: IUser = req.body;
+
+// 	try {
+// 		const newUser = { email, fullname, password };
+// 		const user = await UserModel.create(newUser);
+// 		res.json(user);
+// 	} catch (e) {
+// 		if (e.code === 11000) {
+// 			res.json('User with that email already exist');
+// 			return next();
+// 		}
+// 		next();
+// 	}
+// };
+
 class AuthController {
 	io: socket.Server;
 
@@ -16,14 +34,11 @@ class AuthController {
 		this.io = io;
 	}
 
-	create = (req: express.Request, res: express.Response): void => {
+	create(req: express.Request, res: express.Response) {
 		const postData: { email: string; fullname: string; password: string } = {
-			// email: req.body.email,
-			// fullname: req.body.fullname,
-			// password: req.body.password,
-			email: 'gay@juli.com',
-			fullname: 'Gay Juli',
-			password: 'qwerty123',
+			email: req.body.email,
+			fullname: req.body.fullname,
+			password: req.body.password,
 		};
 
 		const errors = validationResult(req);
@@ -63,7 +78,7 @@ class AuthController {
 					});
 				});
 		}
-	};
+	}
 
 	login = (req: express.Request, res: express.Response): void => {
 		const postData: { email: string; password: string } = {
