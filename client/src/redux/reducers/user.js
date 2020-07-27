@@ -7,7 +7,7 @@ const initialState = {
 	isAuth: !!LocalStorage.get('token'),
 };
 
-export default (state = initialState, { type, payload }) => {
+export const userReducer = (state = initialState, { type, payload }) => {
 	switch (type) {
 		case userActionsTypes.SET_DATA:
 			return {

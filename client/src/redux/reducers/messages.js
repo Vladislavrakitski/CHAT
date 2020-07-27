@@ -5,7 +5,7 @@ const initialState = {
 	isLoading: false,
 };
 
-export default (state = initialState, { type, payload }) => {
+export const messagesReducer = (state = initialState, { type, payload }) => {
 	switch (type) {
 		case messagesActionsTypes.ADD_MESSAGE:
 			return {

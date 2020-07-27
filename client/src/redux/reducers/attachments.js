@@ -4,7 +4,7 @@ const initialState = {
 	items: [],
 };
 
-export default (state = initialState, { type, payload }) => {
+export const attachmentsReducer = (state = initialState, { type, payload }) => {
 	switch (type) {
 		case attachmentsActionsTypes.SET_ITEMS:
 			return {

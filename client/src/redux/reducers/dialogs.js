@@ -6,7 +6,7 @@ const initialState = {
 	isLoading: false,
 };
 
-export default (state = initialState, { type, payload }) => {
+export const dialogsReducer = (state = initialState, { type, payload }) => {
 	switch (type) {
 		case dialogsActionsTypes.SET_ITEMS:
 			return {
