@@ -20,7 +20,7 @@
 		"paths": {
 			"@src/*": ["src/*"],
 			"@images/*": ["src/assets/images/*"],
-			"@store/*": ["src/store/*"],
+			"@redux/*": ["src/redux/*"],
 			"@styles/*": ["src/styles/*"]
 		},
 		"lib": ["es6", "dom"]

@@ -11,7 +11,7 @@ const createRoutes = (app: any, io: socket.Server) => {
 	app.use(auth);
 	app.use(visit);
 
-	authRoutes(app, io);
+	authRoutes(app);
 	userRoutes(app, io);
 	messageRoutes(app, io);
 	dialogRoutes(app, io);

@@ -28,12 +28,6 @@ import { createToken } from '../helpers';
 // };
 
 class AuthController {
-	io: socket.Server;
-
-	constructor(io: socket.Server) {
-		this.io = io;
-	}
-
 	create(req: express.Request, res: express.Response) {
 		const postData: { email: string; fullname: string; password: string } = {
 			email: req.body.email,
@@ -86,6 +80,8 @@ class AuthController {
 			password: req.body.password,
 		};
 
+		console.log(postData);
+
 		const errors: Result<ValidationError> = validationResult(req);
 
 		if (!errors.isEmpty()) {
@@ -99,10 +95,9 @@ class AuthController {
 							message: 'User not found',
 						});
 					}
-
 					if (
-						user.password &&
-						bcrypt.compareSync(postData.password, user.password)
+						user.password === postData.password
+						//bcrypt.compareSync(postData.password, user.password)
 					) {
 						const token = createToken(user);
 						res.json({
